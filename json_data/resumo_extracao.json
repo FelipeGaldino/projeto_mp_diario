@@ -1,0 +1,41 @@
+{
+  "data_extracao": "2025-10-14 14:36:21",
+  "total_arquivos_processados": 12,
+  "total_arquivos_sucesso": 12,
+  "total_arquivos_erro": 0,
+  "pastas": {
+    "dje": {
+      "total_arquivos": 2,
+      "total_paginas": 145,
+      "total_caracteres": 863153,
+      "arquivos": [
+        "12047-2025_CADERNO_ADMINISTRATIVO_DO_PODER_JUDICIARIO.pdf",
+        "12048-2025_CADERNO_ADMINISTRATIVO_DO_PODER_JUDICIARIO.pdf"
+      ]
+    },
+    "doe": {
+      "total_arquivos": 7,
+      "total_paginas": 89,
+      "total_caracteres": 251354,
+      "arquivos": [
+        "DOE_MPMT_DIARIO_10_10_2025.pdf",
+        "DOE_MPMT_DIARIO_09_10_2025.pdf",
+        "DOE_MPMT_DIARIO_03_10_2025.pdf",
+        "DOE_MPMT_DIARIO_13_10_2025.pdf",
+        "DOE_MPMT_DIARIO_06_10_2025.pdf",
+        "DOE_MPMT_DIARIO_08_10_2025.pdf",
+        "DOE_MPMT_DIARIO_07_10_2025.pdf"
+      ]
+    },
+    "iomat": {
+      "total_arquivos": 3,
+      "total_paginas": 516,
+      "total_caracteres": 3116799,
+      "arquivos": [
+        "diario_oficial_2025-10-13_completo.pdf",
+        "diario_oficial_2025-10-14_completo.pdf",
+        "diario_oficial_2025-10-10_completo.pdf"
+      ]
+    }
+  }
+}
