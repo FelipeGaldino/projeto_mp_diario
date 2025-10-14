@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ArrowLeft,
   ExternalLink,
@@ -182,24 +183,26 @@ export default function ResultsPage({
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] text-white">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="bg-gradient-to-r from-[#093089] to-[#093089] text-white">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
           <div className="flex items-center justify-between">
             <button
               onClick={onBack}
-              className="flex items-center gap-3 hover:text-blue-200 transition-colors"
+              className="flex items-center gap-2 md:gap-3 hover:text-blue-200 transition-colors"
             >
-              <ArrowLeft size={24} />
-              <span className="text-lg">Voltar</span>
+              <ArrowLeft size={20} className="md:w-6 md:h-6" />
+              <span className="text-base md:text-lg">Voltar</span>
             </button>
 
-            <div className="flex items-center space-x-3">
-              <div className="bg-white/20 p-2 rounded-lg">
-                <FileText size={24} />
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <div className="bg-white/20 p-1 md:p-2 rounded-lg">
+                <FileText size={20} className="md:w-6 md:h-6" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">MT.gov.br</h1>
-                <p className="text-blue-100 text-sm">Diário Oficial</p>
+                <h1 className="text-lg md:text-xl font-bold">MT.gov.br</h1>
+                <p className="text-blue-100 text-xs md:text-sm">
+                  Diário Oficial
+                </p>
               </div>
             </div>
           </div>
@@ -208,21 +211,21 @@ export default function ResultsPage({
 
       {/* User Info & Stats */}
       <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                 Resultados da Busca
               </h2>
-              <div className="flex items-center space-x-4 text-gray-600">
+              <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-gray-600 text-sm md:text-base">
                 <div className="flex items-center space-x-2">
-                  <User size={16} />
+                  <User size={14} className="md:w-4 md:h-4" />
                   <span>
                     <strong>Nome:</strong> {searchName}
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <MessageCircle size={16} />
+                  <MessageCircle size={14} className="md:w-4 md:h-4" />
                   <span>
                     <strong>E-mail:</strong> {userEmail}
                   </span>
@@ -230,10 +233,14 @@ export default function ResultsPage({
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] text-white rounded-xl p-4">
+            <div className="bg-gradient-to-r from-[#093089] to-[#093089] text-white rounded-xl p-3 md:p-4">
               <div className="text-center">
-                <div className="text-3xl font-bold">{mockResults.length}</div>
-                <div className="text-blue-100">Menções Encontradas</div>
+                <div className="text-2xl md:text-3xl font-bold">
+                  {mockResults.length}
+                </div>
+                <div className="text-blue-100 text-sm md:text-base">
+                  Menções Encontradas
+                </div>
               </div>
             </div>
           </div>
@@ -242,11 +249,13 @@ export default function ResultsPage({
 
       {/* Filters */}
       <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-wrap items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 py-3 md:py-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4">
             <div className="flex items-center space-x-2">
-              <Filter size={20} className="text-gray-500" />
-              <span className="text-gray-700 font-medium">Filtros:</span>
+              <Filter size={18} className="text-gray-500 md:w-5 md:h-5" />
+              <span className="text-gray-700 font-medium text-sm md:text-base">
+                Filtros:
+              </span>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -260,7 +269,7 @@ export default function ResultsPage({
               ].map((filter) => (
                 <button
                   key={filter}
-                  className="px-4 py-2 rounded-full border border-gray-200 hover:border-[#1e40af] hover:text-[#1e40af] transition-colors"
+                  className="px-3 md:px-4 py-1 md:py-2 rounded-full border border-gray-200 hover:border-[#093089] hover:text-[#093089] transition-colors text-xs md:text-sm"
                 >
                   {filter}
                 </button>
@@ -271,8 +280,8 @@ export default function ResultsPage({
       </div>
 
       {/* Results List */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="space-y-6">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
+        <div className="space-y-4 md:space-y-6">
           {mockResults.map((result) => {
             const TypeIcon = getTypeIcon(result.type);
             const typeColorClass = getTypeColor(result.type);
@@ -282,34 +291,39 @@ export default function ResultsPage({
                 key={result.id}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100 overflow-hidden"
               >
-                <div className="p-6">
+                <div className="p-4 md:p-6">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-3 mb-3">
                         <div
-                          className={`${typeColorClass} px-3 py-1 rounded-full border flex items-center space-x-2`}
+                          className={`${typeColorClass} px-2 md:px-3 py-1 rounded-full border flex items-center space-x-1 md:space-x-2`}
                         >
-                          <TypeIcon size={16} />
-                          <span className="font-medium">{result.type}</span>
+                          <TypeIcon size={14} className="md:w-4 md:h-4" />
+                          <span className="font-medium text-xs md:text-sm">
+                            {result.type}
+                          </span>
                         </div>
-                        <div className="flex items-center space-x-2 text-gray-500">
-                          <Calendar size={16} />
+                        <div className="flex items-center space-x-2 text-gray-500 text-sm">
+                          <Calendar size={14} className="md:w-4 md:h-4" />
                           <span>{result.date}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-gray-500">
-                          <FileText size={16} />
+                        <div className="flex items-center space-x-2 text-gray-500 text-sm">
+                          <FileText size={14} className="md:w-4 md:h-4" />
                           <span>Edição {result.edition}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center space-x-2 mb-3">
-                        <Building2 size={20} className="text-[#1e40af]" />
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <Building2
+                          size={18}
+                          className="text-[#093089] md:w-5 md:h-5"
+                        />
+                        <h3 className="text-base md:text-lg font-semibold text-gray-900">
                           {result.organ}
                         </h3>
                       </div>
 
-                      <p className="text-gray-700 leading-relaxed mb-4">
+                      <p className="text-gray-700 leading-relaxed mb-4 text-sm md:text-base">
                         {result.excerpt}
                       </p>
                     </div>
@@ -317,26 +331,36 @@ export default function ResultsPage({
                     <div className="flex flex-col sm:flex-row gap-2">
                       <button
                         onClick={() => onOpenChat(result)}
-                        className="flex items-center justify-center space-x-2 bg-[#1e40af] hover:bg-[#1e3a8a] text-white px-4 py-2 rounded-lg transition-colors"
+                        className="flex items-center justify-center space-x-1 md:space-x-2 bg-[#093089] hover:bg-[#0a3a9a] text-white px-3 md:px-4 py-2 rounded-lg transition-colors text-sm"
                         title="Conversar com IA sobre este documento"
                       >
-                        <MessageCircle size={18} />
-                        <span>IA Assistant</span>
+                        <MessageCircle
+                          size={16}
+                          className="md:w-[18px] md:h-[18px]"
+                        />
+                        <span className="hidden sm:inline">IA Assistant</span>
+                        <span className="sm:hidden">IA</span>
                       </button>
 
                       <button
-                        className="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors"
+                        className="flex items-center justify-center space-x-1 md:space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 md:px-4 py-2 rounded-lg transition-colors text-sm"
                         title="Abrir publicação"
                       >
-                        <ExternalLink size={18} />
+                        <ExternalLink
+                          size={16}
+                          className="md:w-[18px] md:h-[18px]"
+                        />
                         <span>Abrir</span>
                       </button>
 
                       <button
-                        className="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors"
+                        className="flex items-center justify-center space-x-1 md:space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 md:px-4 py-2 rounded-lg transition-colors text-sm"
                         title="Baixar PDF"
                       >
-                        <Download size={18} />
+                        <Download
+                          size={16}
+                          className="md:w-[18px] md:h-[18px]"
+                        />
                         <span>PDF</span>
                       </button>
                     </div>

@@ -14,7 +14,7 @@ module.exports = {
           600: "#2563eb",
           700: "#1d4ed8",
           800: "#1e40af",
-          900: "#1e3a8a",
+          900: "#093089",
         },
         blue: {
           50: "#eff6ff",
@@ -26,11 +26,11 @@ module.exports = {
           600: "#2563eb",
           700: "#1d4ed8",
           800: "#1e40af",
-          900: "#1e3a8a",
+          900: "#093089",
         },
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Encode Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

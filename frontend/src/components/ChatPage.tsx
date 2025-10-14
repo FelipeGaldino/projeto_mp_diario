@@ -158,24 +158,26 @@ export default function ChatPage({
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] text-white">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="bg-gradient-to-r from-[#093089] to-[#093089] text-white">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
           <div className="flex items-center justify-between">
             <button
               onClick={onBack}
-              className="flex items-center gap-3 hover:text-blue-200 transition-colors"
+              className="flex items-center gap-2 md:gap-3 hover:text-blue-200 transition-colors"
             >
-              <ArrowLeft size={24} />
-              <span className="text-lg">Voltar</span>
+              <ArrowLeft size={20} className="md:w-6 md:h-6" />
+              <span className="text-base md:text-lg">Voltar</span>
             </button>
 
-            <div className="flex items-center space-x-3">
-              <div className="bg-white/20 p-2 rounded-lg">
-                <MessageCircle size={24} />
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <div className="bg-white/20 p-1 md:p-2 rounded-lg">
+                <MessageCircle size={20} className="md:w-6 md:h-6" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">IA Assistant</h1>
-                <p className="text-blue-100 text-sm">Diário Oficial</p>
+                <h1 className="text-lg md:text-xl font-bold">IA Assistant</h1>
+                <p className="text-blue-100 text-xs md:text-sm">
+                  Diário Oficial
+                </p>
               </div>
             </div>
           </div>
@@ -184,30 +186,35 @@ export default function ChatPage({
 
       {/* Document Info */}
       <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 md:p-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="bg-[#1e40af] text-white p-3 rounded-lg">
-                  <FileText size={24} />
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="bg-[#093089] text-white p-2 md:p-3 rounded-lg">
+                  <FileText size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="bg-[#1e40af] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-3 mb-2">
+                    <span className="bg-[#093089] text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">
                       {document.type}
                     </span>
                     <div className="flex items-center space-x-2 text-gray-600">
-                      <Calendar size={16} />
-                      <span className="text-sm">{document.date}</span>
+                      <Calendar size={14} className="md:w-4 md:h-4" />
+                      <span className="text-xs md:text-sm">
+                        {document.date}
+                      </span>
                     </div>
                   </div>
                   <div className="flex items-center space-x-2 mb-1">
-                    <Building2 size={16} className="text-[#1e40af]" />
-                    <h3 className="font-semibold text-gray-900">
+                    <Building2
+                      size={14}
+                      className="text-[#093089] md:w-4 md:h-4"
+                    />
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
                       {document.organ}
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-xs md:text-sm">
                     Edição nº {document.edition} • Busca para: {searchName}
                   </p>
                 </div>
@@ -226,7 +233,7 @@ export default function ChatPage({
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
+        <div className="max-w-4xl mx-auto px-4 py-4 md:py-8 space-y-4 md:space-y-6">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -235,34 +242,36 @@ export default function ChatPage({
               }`}
             >
               <div
-                className={`flex items-start space-x-3 max-w-[80%] ${
+                className={`flex items-start space-x-2 md:space-x-3 max-w-[85%] md:max-w-[80%] ${
                   message.sender === "user"
                     ? "flex-row-reverse space-x-reverse"
                     : ""
                 }`}
               >
                 <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                  className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center ${
                     message.sender === "user"
-                      ? "bg-[#1e40af] text-white"
-                      : "bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] text-white"
+                      ? "bg-[#093089] text-white"
+                      : "bg-gradient-to-r from-[#093089] to-[#093089] text-white"
                   }`}
                 >
                   {message.sender === "user" ? (
-                    <User size={16} />
+                    <User size={14} className="md:w-4 md:h-4" />
                   ) : (
-                    <Bot size={16} />
+                    <Bot size={14} className="md:w-4 md:h-4" />
                   )}
                 </div>
 
                 <div
-                  className={`rounded-2xl px-4 py-3 ${
+                  className={`rounded-2xl px-3 md:px-4 py-2 md:py-3 ${
                     message.sender === "user"
-                      ? "bg-[#1e40af] text-white"
+                      ? "bg-[#093089] text-white"
                       : "bg-white text-gray-900 shadow-sm border"
                   }`}
                 >
-                  <p className="leading-relaxed">{message.text}</p>
+                  <p className="leading-relaxed text-sm md:text-base">
+                    {message.text}
+                  </p>
                   <div
                     className={`flex items-center justify-between mt-2 ${
                       message.sender === "user"
@@ -307,7 +316,7 @@ export default function ChatPage({
           {isTyping && (
             <div className="flex justify-start">
               <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] text-white flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#093089] to-[#093089] text-white flex items-center justify-center">
                   <Bot size={16} />
                 </div>
                 <div className="bg-white rounded-2xl px-4 py-3 shadow-sm border">
@@ -339,10 +348,10 @@ export default function ChatPage({
       {/* Suggested Questions */}
       {messages.length === 1 && (
         <div className="bg-white border-t">
-          <div className="max-w-4xl mx-auto px-4 py-4">
+          <div className="max-w-4xl mx-auto px-4 py-3 md:py-4">
             <div className="flex items-center space-x-2 mb-3">
-              <Sparkles size={16} className="text-[#1e40af]" />
-              <span className="text-gray-700 font-medium">
+              <Sparkles size={14} className="text-[#093089] md:w-4 md:h-4" />
+              <span className="text-gray-700 font-medium text-sm md:text-base">
                 Perguntas sugeridas:
               </span>
             </div>
@@ -351,7 +360,7 @@ export default function ChatPage({
                 <button
                   key={index}
                   onClick={() => setInputMessage(question)}
-                  className="bg-blue-50 hover:bg-blue-100 text-[#1e40af] px-4 py-2 rounded-full transition-colors text-sm border border-blue-200"
+                  className="bg-blue-50 hover:bg-blue-100 text-[#093089] px-3 md:px-4 py-1 md:py-2 rounded-full transition-colors text-xs md:text-sm border border-blue-200"
                 >
                   {question}
                 </button>
@@ -363,33 +372,33 @@ export default function ChatPage({
 
       {/* Input Area */}
       <div className="bg-white border-t">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <form onSubmit={handleSendMessage} className="flex gap-4">
+        <div className="max-w-4xl mx-auto px-4 py-4 md:py-6">
+          <form onSubmit={handleSendMessage} className="flex gap-3 md:gap-4">
             <div className="flex-1 relative">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Digite sua pergunta sobre o documento..."
-                className="w-full bg-gray-50 border border-gray-200 rounded-full px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-[#1e40af] focus:border-transparent transition-all"
+                className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 md:px-6 py-3 md:py-4 text-sm md:text-lg outline-none focus:ring-2 focus:ring-[#093089] focus:border-transparent transition-all"
               />
             </div>
             <button
               type="submit"
               disabled={!inputMessage.trim() || isTyping}
-              className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] hover:from-[#1e3a8a] hover:to-[#1d4ed8] disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white w-14 h-14 rounded-full flex items-center justify-center transition-all transform hover:scale-105 disabled:scale-100"
+              className="bg-gradient-to-r from-[#093089] to-[#093089] hover:from-[#0a3a9a] hover:to-[#0a3a9a] disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all transform hover:scale-105 disabled:scale-100"
             >
               {isTyping ? (
-                <RefreshCw size={20} className="animate-spin" />
+                <RefreshCw size={18} className="animate-spin md:w-5 md:h-5" />
               ) : (
-                <Send size={20} />
+                <Send size={18} className="md:w-5 md:h-5" />
               )}
             </button>
           </form>
 
-          <div className="flex items-center justify-center mt-4">
-            <div className="flex items-center space-x-2 text-gray-500 text-sm">
-              <Clock size={14} />
+          <div className="flex items-center justify-center mt-3 md:mt-4">
+            <div className="flex items-center space-x-2 text-gray-500 text-xs md:text-sm">
+              <Clock size={12} className="md:w-[14px] md:h-[14px]" />
               <span>IA Assistant • Respostas em tempo real</span>
             </div>
           </div>

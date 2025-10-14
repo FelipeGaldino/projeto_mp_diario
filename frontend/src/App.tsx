@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import HomePage from './components/HomePage';
-import FormPage from './components/FormPage';
-import ResultsPage from './components/ResultsPage';
-import ChatPage from './components/ChatPage';
+import { useState } from "react";
+import HomePage from "./components/HomePage";
+import FormPage from "./components/FormPage";
+import ResultsPage from "./components/ResultsPage";
+import ChatPage from "./components/ChatPage";
 
 interface Document {
   id: number;
@@ -14,49 +14,58 @@ interface Document {
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'form' | 'results' | 'chat'>('home');
-  const [searchName, setSearchName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPhone, setUserPhone] = useState('');
-  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
+  const [currentPage, setCurrentPage] = useState<
+    "home" | "form" | "results" | "chat"
+  >("home");
+  const [searchName, setSearchName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(
+    null
+  );
 
   const handleSearch = (name: string) => {
     setSearchName(name);
-    setCurrentPage('form');
+    // Definir valores padrão para email e telefone
+    setUserEmail("usuario@exemplo.com");
+    setUserPhone("(65) 99999-9999");
+    setCurrentPage("results");
   };
 
   const handleFormSubmit = (email: string, phone: string) => {
     setUserEmail(email);
     setUserPhone(phone);
-    setCurrentPage('results');
+    setCurrentPage("results");
   };
 
   const handleBackToHome = () => {
-    setCurrentPage('home');
-    setSearchName('');
+    setCurrentPage("home");
+    setSearchName("");
+    setUserEmail("");
+    setUserPhone("");
   };
 
   const handleOpenChat = (document: Document) => {
     setSelectedDocument(document);
-    setCurrentPage('chat');
+    setCurrentPage("chat");
   };
 
   const handleBackToResults = () => {
-    setCurrentPage('results');
+    setCurrentPage("results");
     setSelectedDocument(null);
   };
 
   return (
     <div className="size-full">
-      {currentPage === 'home' && <HomePage onSearch={handleSearch} />}
-      {currentPage === 'form' && (
+      {currentPage === "home" && <HomePage onSearch={handleSearch} />}
+      {currentPage === "form" && (
         <FormPage
           searchName={searchName}
           onSubmit={handleFormSubmit}
           onBack={handleBackToHome}
         />
       )}
-      {currentPage === 'results' && (
+      {currentPage === "results" && (
         <ResultsPage
           searchName={searchName}
           userEmail={userEmail}
@@ -64,7 +73,7 @@ export default function App() {
           onOpenChat={handleOpenChat}
         />
       )}
-      {currentPage === 'chat' && selectedDocument && (
+      {currentPage === "chat" && selectedDocument && (
         <ChatPage
           document={selectedDocument}
           searchName={searchName}
