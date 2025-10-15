@@ -65,3 +65,13 @@ projeto_mp_diario/
 
 - **Site**: https://[seu-usuario].github.io/projeto_mp_diario/
 - **Fonte**: https://www.mpmt.mp.br/diario-oficial/
+
+
+https://www.mpmt.mp.br/diario-oficial/
+
+https://iomat.mt.gov.br/
+
+https://dje.tjmt.jus.br/dje
+
+
+https://pericia-assistida.lovable.app/
