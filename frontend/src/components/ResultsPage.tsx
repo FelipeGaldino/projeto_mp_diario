@@ -21,6 +21,8 @@ import {
   Gavel,
 } from "lucide-react";
 
+import Logo from "../../src/public/logo.png";
+
 interface Document {
   id: number;
   date: string;
@@ -195,15 +197,7 @@ export default function ResultsPage({
             </button>
 
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="bg-white/20 p-1 md:p-2 rounded-lg">
-                <FileText size={20} className="md:w-6 md:h-6" />
-              </div>
-              <div>
-                <h1 className="text-lg md:text-xl font-bold">MT.gov.br</h1>
-                <p className="text-blue-100 text-xs md:text-sm">
-                  Diário Oficial
-                </p>
-              </div>
+              <img src={Logo} alt="Logo" className="aspect-video w-44" />
             </div>
           </div>
         </div>

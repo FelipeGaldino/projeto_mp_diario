@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import Logo from "../../src/public/logo.png";
+import BgHeader from "../../src/public/bg-header.jpg";
 
 interface HomePageProps {
   onSearch: (name: string) => void;
@@ -98,7 +99,7 @@ export default function HomePage({ onSearch }: HomePageProps) {
 
   const stats = [
     { number: "770+", label: "Publicações Diárias", icon: FileText },
-    { number: "355+", label: "Órgãos Ativos", icon: Building2 },
+
     { number: "24/7", label: "Disponibilidade", icon: Clock },
     { number: "100%", label: "Gratuito", icon: CheckCircle },
   ];
@@ -106,23 +107,18 @@ export default function HomePage({ onSearch }: HomePageProps) {
   return (
     <div className="bg-white min-h-screen">
       {/* Main Header */}
-      <div className="bg-gradient-to-r from-[#093089] to-[#093089] text-white">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
+      <div
+        className="text-white bg-cover bg-center relative"
+        style={{ backgroundImage: `url(${BgHeader})` }}
+      >
+        <div className="absolute inset-0 bg-[#093089] bg-opacity-90 mix-blend-multiply"></div>
+        <div className="relative max-w-7xl mx-auto px-4 py-4 md:py-8">
           <div className="flex items-center justify-between mb-6 md:mb-8">
-            <div className="flex items-center space-x-2 md:space-x-4">
-              {/* <div className="bg-white text-[#093089] p-2 md:p-3 rounded-lg">
-                <FileText size={24} className="md:w-8 md:h-8" />
-              </div> */}
-              <div>
-                <img src={Logo} alt="Logo" className="aspect-video w-36" />
-                {/* <h1 className="text-xl md:text-3xl font-bold">
-                  Diário Oficial
-                </h1>
-                <p className="text-blue-100 text-sm md:text-base">
-                  Estado de Mato Grosso
-                </p> */}
+            <a href="/">
+              <div className="flex items-center space-x-2 md:space-x-4">
+                <img src={Logo} alt="Logo" className="aspect-video w-44" />
               </div>
-            </div>
+            </a>
 
             <button
               className="md:hidden"
@@ -225,7 +221,7 @@ export default function HomePage({ onSearch }: HomePageProps) {
             <div className="w-24 h-1 bg-white mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 justify-items-center mx-auto lg:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="bg-white/10 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
@@ -291,15 +287,7 @@ export default function HomePage({ onSearch }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="bg-white text-[#093089] p-2 rounded">
-                  <FileText size={20} className="md:w-6 md:h-6" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold">Diário Oficial</h3>
-              </div>
-              <p className="text-blue-100 text-sm md:text-base">
-                Sistema de busca do Diário Oficial de Mato Grosso
-              </p>
+              <img src={Logo} alt="Logo" className="aspect-video w-40" />
             </div>
 
             <div>
