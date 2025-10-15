@@ -18,6 +18,8 @@ import {
   User,
 } from "lucide-react";
 
+import Logo from "../../src/public/logo.png";
+
 interface HomePageProps {
   onSearch: (name: string) => void;
 }
@@ -108,16 +110,17 @@ export default function HomePage({ onSearch }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
           <div className="flex items-center justify-between mb-6 md:mb-8">
             <div className="flex items-center space-x-2 md:space-x-4">
-              <div className="bg-white text-[#093089] p-2 md:p-3 rounded-lg">
+              {/* <div className="bg-white text-[#093089] p-2 md:p-3 rounded-lg">
                 <FileText size={24} className="md:w-8 md:h-8" />
-              </div>
+              </div> */}
               <div>
-                <h1 className="text-xl md:text-3xl font-bold">
+                <img src={Logo} alt="Logo" className="aspect-video w-36" />
+                {/* <h1 className="text-xl md:text-3xl font-bold">
                   Diário Oficial
                 </h1>
                 <p className="text-blue-100 text-sm md:text-base">
                   Estado de Mato Grosso
-                </p>
+                </p> */}
               </div>
             </div>
 
