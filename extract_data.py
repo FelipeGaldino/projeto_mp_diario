@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 class PDFExtractor:
     """Classe para extrair dados de PDFs e salvar em JSON"""
 
-    def __init__(self, output_dir: str = "json_data"):
+    def __init__(self, output_dir: str = "json_data_raw"):
         """
         Inicializa o extrator de PDFs
 
@@ -319,7 +319,7 @@ def main():
     pastas_processar = ['dje', 'doe', 'iomat']
 
     # Cria o extrator
-    extrator = PDFExtractor(output_dir='json_data')
+    extrator = PDFExtractor(output_dir='json_data_raw')
 
     # Processa todas as pastas
     resultados = extrator.processar_todas_pastas(pastas_processar)
